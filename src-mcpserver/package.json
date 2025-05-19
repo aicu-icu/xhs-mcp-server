@@ -1,0 +1,27 @@
+{
+  "name": "mcpserver",
+  "version": "1.0.0",
+  "bin": {
+    "web-mcp-server": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && mcp-build",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "mcp-framework": "^0.2.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.31",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "license": "ISC",
+  "description": ""
+}
