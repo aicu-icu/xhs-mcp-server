@@ -34,6 +34,8 @@ AI 客户端使用 `StreamableHTTP` 协议连接 MCP 服务，可自定义认证
 fetch('//raw.githubusercontent.com/aicu-icu/xhs-mcp-server/refs/heads/main/loader.user.js').then(r=>r.text()).then(eval)
 ```
 
+✅ 如果页面右下角显示了 Broxy 图标，则执行成功。关闭控制台后点击图标启动即可。
+
 ⚠️ 关闭页面后失效。
 
 ---
