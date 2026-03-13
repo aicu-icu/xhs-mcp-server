@@ -15,8 +15,17 @@
 
     console.log('[XHS-MCP-Server] 开始加载...');
 
+    async function loadWithEval(url) {
+        console.log(`[XHS-MCP-Server] 正在加载(eval): ${url}`);
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const code = await response.text();
+        eval(code);
+        console.log(`[XHS-MCP-Server] 加载完成: ${url}`);
+    }
+
     function loadScript(url) {
-        console.log(`[XHS-MCP-Server] 正在加载: ${url}`);
+        console.log(`[XHS-MCP-Server] 正在加载(script): ${url}`);
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = url;
@@ -33,7 +42,7 @@
     }
 
     async function main() {
-        await loadScript('https://raw.githubusercontent.com/aicu-icu/xhs-mcp-server/refs/heads/main/data-js/latest.js');
+        await loadWithEval('https://raw.githubusercontent.com/aicu-icu/xhs-mcp-server/refs/heads/main/data-js/latest.js');
         await loadScript('https://broxy.dev/assets/broxy-v1.user.js');
         console.log('[XHS-MCP-Server] 所有脚本加载完成');
     }
