@@ -27,14 +27,14 @@ AI 客户端使用 `StreamableHTTP` 协议连接 MCP 服务，可自定义认证
 ## 快速运行（无需安装）
 
 1. 打开 [小红书官网](https://www.xiaohongshu.com)
-2. 按 `F12` 打开控制台
+2. 按 `F12` 或 `Ctrl+Shift+J` 打开控制台
 3. 粘贴以下代码并回车：
 
 ```javascript
-fetch('https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/loader.user.js').then(r=>r.text()).then(eval)
+fetch('//cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/loader.user.js').then(r=>r.text()).then(eval)
 ```
 
-关闭页面后失效。
+⚠️ 关闭页面后失效。
 
 ---
 
@@ -42,7 +42,10 @@ fetch('https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/loader.user.js')
 
 1. 安装 Broxy 扩展：https://broxy.dev
 2. 安装完毕后，打开小红书网页：https://www.xiaohongshu.com
-3. 点击右下角的 Broxy 图标，进入设置，【从链接导入数据】，地址填写：`https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/data-json/latest.json`
+3. 点击右下角的 Broxy 图标，进入设置，【从链接导入数据】，地址填写：
+   ```
+   https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/data-json/latest.json
+   ```
 4. 或者下载当前项目目录的 `data-json/` 下的配置文件，然后在 Broxy 扩展里从文件导入
 
 导入完毕，点击启动，即可获取 MCP 服务地址去使用
