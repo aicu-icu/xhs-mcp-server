@@ -28,7 +28,20 @@
             eval(code);
             console.log(`[XHS-MCP-Server] 加载完成: ${url}`);
         } catch (error) {
-            console.error(`[XHS-MCP-Server] 加载失败: ${url}`, error);
+            console.warn(`[XHS-MCP-Server] fetch失败，尝试script注入: ${url}`, error);
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = url;
+                script.onload = () => {
+                    console.log(`[XHS-MCP-Server] script注入成功: ${url}`);
+                    resolve();
+                };
+                script.onerror = () => {
+                    console.error(`[XHS-MCP-Server] script注入失败: ${url}`);
+                    reject(new Error('Script load failed'));
+                };
+                document.head.appendChild(script);
+            });
         }
     }
 
