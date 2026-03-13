@@ -5,8 +5,7 @@
 // @author       aicu-icu
 // @icon         https://broxy.dev/assets/logo.png
 // @updateURL    https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/loader.user.js
-// @match        https://*/*
-// @match        http://*/*
+// @match        https://www.xiaohongshu.com/*
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
