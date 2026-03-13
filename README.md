@@ -1,42 +1,61 @@
-# 小红书MCP服务器（2026最简单、快速、精准版本）
+# 小红书 MCP 服务器
 
-> 苦于网上开源/开放的小红书MCP服务，要么配置复杂，要么经常失效，以及速度过慢、数据不精准等问题，
-> 痴狂哥抽空重写了开源的小红书MCP服务，方便大家快速接入自己的AI助手中，实现高效、精准自动化运营。
+> 简单、快速、精准的小红书 MCP 服务，方便接入 AI 助手实现自动化运营。
 
-新版本独特优势：
-- 无需安装命令 软件等复杂操作，只需要浏览器+插件即可，小白也能2分钟搞定
-- 纯接口调用实现数据获取，比传统模拟抓取数据更齐全、精准、快速
+## 优势
+
+- **简单** - 无需复杂配置，浏览器 + 插件即可，2 分钟搞定
+- **精准** - 纯接口调用，数据比传统抓取更齐全、精准
+- **快速** - 数据量不大时，1-2 秒完成执行
+
+---
 
 ## 功能一览
-已内置10个MCP工具，以及极大的可开发扩展性，你想要增加什么功能，参考示例代码，几分钟就能搞定！
 
-![小红书MCP服务工具列表](./screenshots/xhsmcp-broxy.png)
+内置 10 个 MCP 工具，支持扩展开发。
 
-AI客户端中使用`StreamableHTTP`协议链接MCP服务即可使用，还可以自定义设置认证头增强安全性！
+![MCP 工具列表](./screenshots/xhsmcp-broxy.png)
 
-![连接调用小红书MCP服务测试](./screenshots/xhsmcp-tools.png)
+AI 客户端使用 `StreamableHTTP` 协议连接 MCP 服务，可自定义认证头增强安全性。
 
-实际中使用，速度是非常快的，数据量不大的情况基本一两秒就能执行完毕！
+![连接测试](./screenshots/xhsmcp-tools.png)
 
-![实际使用小红书MCP服务效果](./screenshots/xhsmcp-test.png)
+![使用效果](./screenshots/xhsmcp-test.png)
+
+---
+
+## 快速运行（无需安装）
+
+1. 打开 [小红书官网](https://www.xiaohongshu.com)
+2. 按 `F12` 打开控制台
+3. 粘贴以下代码并回车：
+
+```javascript
+fetch('https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/loader.user.js').then(r=>r.text()).then(eval)
+```
+
+关闭页面后失效。
+
+---
 
 ## 快速安装
 
-### 1. 下载本项目的`broxy-小红书网页版MCP-1.3.11-20260311.json`文件到本地
+1. 安装 Broxy 扩展：https://broxy.dev
+2. 安装完毕后，打开小红书网页：https://www.xiaohongshu.com
+3. 点击右下角的 Broxy 图标，进入设置，【从链接导入数据】，地址填写：`https://cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/data-json/latest.json`
+4. 或者下载当前项目目录的 `data-json/` 下的配置文件，然后在 Broxy 扩展里从文件导入
 
-### 2. 安装[Broxy](https://broxy.dev)浏览器扩展
-1. 先安装[油猴扩展](https://www.tampermonkey.net/)
-2. 再点击[安装Broxy脚本](https://broxy.dev/assets/broxy-v1.user.js)到油猴扩展里
+导入完毕，点击启动，即可获取 MCP 服务地址去使用
 
-### 3. 导入小红书MCP服务代码并启动
-安装好扩展和脚本后，打开[小红书官网](https://www.xiaohongshu.com)，可以看到右下角有Broxy的图标，点击，进入【设置】页面，导入第一步下载的文件。    
-成功导入后（可以看到工具数量），点击左上角的【启动】，最后在【基本信息】页面就能复制MCP地址去使用了！
+---
 
-## 特别注意
-小红书接口请求频繁、以及`xsec_token`参数不匹配等要素，会导致触发风控，提醒用户异常以及自动退出用户账号。
-所以在使用中需要特别注意提醒，别让AI助手调用太频繁，以及别让它胡乱编造不存在的笔记或用户id以及`xsec_token`。
+## 注意事项
 
+> 小红书接口请求频繁或 `xsec_token` 参数不匹配会触发风控，导致账号异常退出。
+> 请避免 AI 助手调用过于频繁，不要编造不存在的笔记/用户 ID 或 `xsec_token`。
 
-有问题请关注联系我们：
+---
+
+## 联系我们
 
 ![为Ai痴狂](https://chat.openugc.com/qr.jpg)
