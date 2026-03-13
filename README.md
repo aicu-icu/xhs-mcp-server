@@ -31,7 +31,7 @@ AI 客户端使用 `StreamableHTTP` 协议连接 MCP 服务，可自定义认证
 3. 粘贴以下代码并回车：
 
 ```javascript
-fetch('//cdn.jsdelivr.net/gh/aicu-icu/xhs-mcp-server@main/loader.user.js').then(r=>r.text()).then(eval)
+fetch('//raw.githubusercontent.com/aicu-icu/xhs-mcp-server/refs/heads/main/loader.user.js').then(r=>r.text()).then(eval)
 ```
 
 ⚠️ 关闭页面后失效。
